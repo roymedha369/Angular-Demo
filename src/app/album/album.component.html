@@ -1,35 +1,32 @@
-<p>album works!</p>
-
 <div>
     <div class="row">
         <div class="col-md-5" *ngIf="selectedAlbum==null">
-            <div class="container-fluid">
-    <ol>
+        <ol>
         <li *ngFor="let album of albumList"> 
-        <div (click)="selectParticularAlbum(album.id)">
+        <div class="card-album" (click)="selectParticularAlbum(album.id)">
              {{album.title}} 
-             <span *ngFor="let user of userList">
-           <span *ngIf="album.userId==user.id">User:{{user.name}}</span>
-             </span> 
-            </div>
+             <div class="card-body" *ngFor="let user of userList">
+             <div *ngIf="album.userId==user.id">User:{{user.name}}</div>
+        </div>
+        </div>
         </li>
       </ol>
-    </div>
 </div>
 
     <div class="col-md-5" *ngIf="selectedAlbum!=null && selectedPhoto==null">
     <div class="card" *ngFor="let photo of photoList">
         <div class="card-body" *ngIf="photo.albumId==selectedAlbum.id">
             <img [src]="photo.thumbnailUrl"  (click)="getParticularPhoto(photo.id)">
+            <br>
+            <br>
         </div>
+        <br>
     </div>
 </div>
 
     <div class="col-md-5" *ngIf="selectedPhoto!=null">
         <div class="card">
-            <div class="card-body" >
                 <img [src]="selectedPhoto.url">
-            </div>
         </div>
     </div>
     
