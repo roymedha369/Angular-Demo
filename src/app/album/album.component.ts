@@ -40,6 +40,7 @@ export class AlbumComponent implements OnInit {
 
   selectParticularAlbum(albumId)
   {
+    this.selectedAlbum=null;
     this.albumsService.getParticularAlbum(albumId).subscribe(
       (data)=>{this.selectedAlbum=data}
     )

@@ -12,3 +12,15 @@
     transition: all 0.2s ease-in-out;
     line-height: 24px;
   }
+ 
+
+  body{
+      overflow: auto;
+  }
+
+  .card-photo{
+  
+    border: 1px solid rgb(19, 18, 18);
+    height: 160px;
+    width: 160px;
+  }
