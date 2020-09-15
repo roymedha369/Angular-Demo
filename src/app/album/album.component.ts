@@ -16,6 +16,7 @@ export class AlbumComponent implements OnInit {
   userList:User[];
   photoList:Photo[];
   selectedPhoto:Photo;
+  album:Number;
 
   constructor(private albumsService:AlbumService) {
     
@@ -25,12 +26,12 @@ export class AlbumComponent implements OnInit {
  
     this.getAlbums();
     this.getUsers();
+    this.getPhotos();
     
   }
 
   getAlbums(){
     this.errorMessage=null;
-   
     this.albumsService.getAlbums().subscribe(
       (response)=>{this.albumList=response},
       (error)=>{this.errorMessage=error.error.messgae}
@@ -39,16 +40,11 @@ export class AlbumComponent implements OnInit {
 
   selectParticularAlbum(albumId)
   {
-    
-    this.errorMessage=null;
     this.albumsService.getParticularAlbum(albumId).subscribe(
-      (response)=>{
-        this.selectedAlbum=response;
-      }
+      (data)=>{this.selectedAlbum=data}
     )
- 
+  
   }
-
 
   getUsers()
   {
@@ -74,6 +70,6 @@ export class AlbumComponent implements OnInit {
     (response)=>{this.selectedPhoto=response},
     (error)=>{this.errorMessage=error.error.messgae}
   )
-
+   
  }
 }
