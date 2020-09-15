@@ -4,9 +4,13 @@
         <ol>
         <li *ngFor="let album of albumList"> 
         <div class="card-album" (click)="selectParticularAlbum(album.id)">
-             {{album.title}} 
+            Title: {{album.title}} 
+             <br>
+             <br>
              <div class="card-body" *ngFor="let user of userList">
-             <div *ngIf="album.userId==user.id">User:{{user.name}}</div>
+             <div *ngIf="album.userId==user.id">
+            <br>     
+            User: {{user.name}}</div>
         </div>
         </div>
         </li>
@@ -14,8 +18,8 @@
 </div>
 
     <div class="col-md-5" *ngIf="selectedAlbum!=null && selectedPhoto==null">
-    <div class="card" *ngFor="let photo of photoList">
-        <div class="card-body" *ngIf="photo.albumId==selectedAlbum.id">
+    <div *ngFor="let photo of photoList">
+        <div *ngIf="photo.albumId==selectedAlbum.id">
             <img [src]="photo.thumbnailUrl"  (click)="getParticularPhoto(photo.id)">
             <br>
             <br>
