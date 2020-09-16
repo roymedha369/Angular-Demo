@@ -1,4 +1,6 @@
-<body>
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
         <div *ngIf="selectedAlbum==null">
         <ol>
         <li *ngFor="let album of albumList"> 
@@ -15,29 +17,27 @@
         </li>
       </ol>
 </div>
+</div>
 
-    <!-- <div *ngIf="selectedAlbum!=null && selectedPhoto==null">
+
+<div class="col-md-10 offset-md-1">
+    <div *ngIf="selectedAlbum!=null && selectedPhoto==null">
     <div *ngFor="let photo of photoList">
         <div *ngIf="photo.albumId==selectedAlbum.id">
             <img [src]="photo.thumbnailUrl"  (click)="getParticularPhoto(photo.id)">
         </div>
         <br>
     </div>
-</div> -->
-
-<div  class="container-fluid" *ngIf="selectedAlbum!=null && selectedPhoto==null">
-    <table class="table">
-        <tbody>
-            <tr *ngFor="let photo of photoList" >
-            <td *ngIf="photo.albumId==selectedAlbum.id"><img class="img-fluid" [src]="photo.thumbnailUrl"  (click)="getParticularPhoto(photo.id)"></td>
-            </tr>
-        </tbody>
-    </table>
+</div>
 </div>
 
+
+<div class="col-md-10 offset-md-1">
     <div *ngIf="selectedPhoto!=null">
         <div>
                 <img [src]="selectedPhoto.url">
         </div>
     </div>
-</body>    
+</div>
+    </div>
+ 
